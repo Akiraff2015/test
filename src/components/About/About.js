@@ -34,7 +34,7 @@ const about = (props) => {
                                    and used Passport local for authentication. The problem with the second version, I made the website, publicly
                                    available on Github. Therefore anybody with the access with the source code, could simply check the router
                                    folders, where they could simply register a user, and claim to be admin. I had one of
-                                    <a href="https://cdn.newsapi.com.au/image/v1/55bb7874af3ed363371de561410a34a5" target="_blank"> those moments</a>.
+                                    <a rel="noopener noreferrer" href="https://cdn.newsapi.com.au/image/v1/55bb7874af3ed363371de561410a34a5" target="_blank"> those moments</a>.
                                    So, I decided to take the website down once again.
                                 </p>
                             </li>
