@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,6 +9,12 @@ router.get('/', function(req, res, next) {
 // Testing API
 router.get('/api/test', (req, res, next) => {
   res.json({a:1});
+});
+
+// TODO: implement register
+router.post('/register', (req, res) => {
+
+    console.log(req.body);
 });
 
 module.exports = router;

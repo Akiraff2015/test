@@ -3,7 +3,7 @@ import React from 'react';
 const home = (props) => {
     return (
         <div className="background-wallpaper">
-            <img alt="" src="./wallpaper.jpg" />
+            <img className="select-disable" alt="wallpaper" src="./wallpaper.jpg" />
             <div className="intro-header font-martel">
                 <h1>Hello, my name is Akira</h1>
                 <h3>I am a Fullstack Developer</h3>
