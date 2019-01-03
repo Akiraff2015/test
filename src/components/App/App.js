@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+//Link
 import Home from '../Home/Home';
 import Blog from '../Blog/Blog';
 import About from '../About/About';
@@ -17,7 +17,8 @@ class App extends Component {
         };
     }
     componentDidMount() {
-        axios.get('/api/test').then(res => console.log(res));
+        console.log(axios);
+        axios.get('/api/test').then(res => console.log(res.data.a));
     }
 
     render() {

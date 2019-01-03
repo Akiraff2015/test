@@ -6,9 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-route.get('/api/test', (req, res, next) => {
-  res.send(JSON.stringify({a: 1}));
+// Testing API
+router.get('/api/test', (req, res, next) => {
+  res.json({a:1});
 });
-
 
 module.exports = router;
