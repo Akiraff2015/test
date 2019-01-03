@@ -9,6 +9,7 @@ class Blog extends Component {
                 title: "Happy 0x7E3! ",
                 id: "sdkal",
                 date: "Jan 1, 2019 at 12:12",
+                role: "Admin",
                 author: "Akiraff",
                 category: ["blog", "tech", "website"],
                 content: {__html: `
@@ -17,17 +18,32 @@ class Blog extends Component {
                 and slowly integrating Mobile Responsive towards my website, and hoping have fully functional by Jan 7 2019.</p>`
                 }
             },
+
+            {
+                title: "#100DaysOfCode",
+                id: "sdka2",
+                date: "Jan 3, 2019 at 18:45",
+                role: "Admin",
+                author: "Akiraff",
+                category: ["blog", "tech"],
+                content: {__html: `
+                <p>I finally started working on the backend of my website. It is going to be hosted on Express and NodeJS. hopefully
+                it is not going to take too long to implement a simple blog system. Today I am going to be starting, #100DaysCodeChallenge.
+                Basically I am required to program every single day, for the next 100 days. Yay me!</p>
+                `}
+            }
         ];
 
         return (
             <div>
-                <h3 class="text-center">&lt;This are my most recent blog posts /&gt;</h3>
-                {posts.map((post) => {
+                <h3 className="text-center">&lt;This are my most recent blog posts /&gt;</h3>
+                {posts.reverse().map((post) => {
                     return <Post
                         title={post.title}
+                        author={post.author}
+                        role={post.role}
                         key={post.id}
                         date={post.date}
-                        author={post.author}
                         content={post.content}/>
                 })}
             </div>
