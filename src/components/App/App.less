@@ -38,6 +38,46 @@
   display: inline-table;
 }
 
+.intro-header {
+  position: absolute;
+  top: 20vh;
+  right: 35vw;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+nav {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px;
+
+      .brand {
+        margin-right: 40px;
+      }
+
+      &:hover {
+        a {
+          color: black;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #eeeeee;
+      }
+    }
+  }
+}
+
 .background-wallpaper {
   img {
     height: 100%;

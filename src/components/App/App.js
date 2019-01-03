@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Home from '../Home/Home';
@@ -8,19 +9,29 @@ import Header from '../Header'
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            test: []
+        };
+    }
+    componentDidMount() {
+        axios.get('/api/test').then(res => console.log(res));
+    }
+
     render() {
         return (
             <Router>
                 <div>
                     <div className="background-wallpaper" >
                         <Header />
-                        <img src="./wallpaper.jpg" />
                     </div>
                     <Route exact path="/" component={Home}  />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/blog" component={Blog} />
 
-                    <footer className="text-center">&copy; 2016-2019 Akiraff</footer>
+                    <footer className="footer text-center">&copy; 2016-2019 Akiraff</footer>
                 </div>
             </Router>
         );
