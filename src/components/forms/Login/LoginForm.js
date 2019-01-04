@@ -12,19 +12,20 @@ class LoginForm extends Component {
             }
         };
     }
+
     handleSubmitForm(e) {
         e.preventDefault();
         const data = this.state.login;
         let login = {...this.state.login};
 
-        if (login.email > 0 || login.password > 0) {
+        if (login.email.length > 0 || login.password.length > 0) {
             axios.post('/login', data).then(res => console.log(res)).catch(err => console.log(err));
 
             // Reset form value
             login.email = ""
             login.password = "";
             this.setState({login});
-            setTimeout(() => window.location = '/dashboard', 2000);
+            // setTimeout(() => window.location = '/dashboard', 2000);
         }
     }
 

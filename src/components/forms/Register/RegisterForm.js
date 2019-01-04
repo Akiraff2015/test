@@ -27,7 +27,7 @@ class RegisterForm extends Component {
             register.email = ""
             register.password = "";
             this.setState({register});
-            setTimeout(() => window.location = '/login', 2000);
+            // setTimeout(() => window.location = '/login', 2000);
         }
     }
 
