@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const mongoose = require('mongoose');
-const url = 'XXX';
+const config = require('./config.js');
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect(config.database, { useNewUrlParser: true });
 
 const app = express();
 
