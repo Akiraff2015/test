@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt-nodejs');
 
 const User = require('../models/UserModel');
+const jwt = require('jsonwebtoken');
+const config = require('../config.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,15 +26,45 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    console.log(req.body);
     User.findOne({email: req.body.email.toLowerCase()}, (err, obj) => {
         if (err) return res.status(500).send("Problem finding user in database");
         if(bcrypt.compareSync(req.body.password, obj.password)) {
-            // redirect them to new page
-            // setup JWT session
-            res.status(303).send("User authenticated, redirecting page");
+            let user = {
+                username: obj.username,
+                role: obj.role
+            }
+
+            jwt.sign({user}, config.secret, (err, token) => {
+                res.json({token});
+                console.log(token);
+            });
         }
     });
 });
+
+router.get('/dashboard', verifyToken, (req, res) => {
+    jwt.verify(req.token, config.secret, (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            res.json({authData});
+        }
+    });
+    console.log("Hello there!");
+});
+
+function verifyToken(req, res, next) {
+    const bearerHeader = req.headers['authorization'];
+
+    if(typeof bearerHeader !== 'undefined') {
+        const bearer = bearerHeader.split(' ');
+        const bearerToken = bearer[1];
+
+        req.token = bearerTokenre;
+        next();
+    } else {
+        res.sendStatus(403);
+    }
+}
 
 module.exports = router;

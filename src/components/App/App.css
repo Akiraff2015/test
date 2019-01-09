@@ -30,7 +30,6 @@
   box-shadow: 5px 10px black;
   width: 29%;
   height: 300px;
-  margin: 10px;
   border: 1px solid black;
   padding: 0 10px;
   display: inline-table;
@@ -136,6 +135,44 @@ h3 {
 .timeline time {
   font-style: italic;
 }
+@media screen and (min-width: 720px) {
+  html {
+    background-color: yellow !important;
+  }
+  .card {
+    margin: 20px 35px;
+    max-height: 300px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .background-wallpaper {
+    color: white;
+  }
+  .background-wallpaper img {
+    height: 100vh;
+    width: 100vw;
+  }
+  .intro-header {
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 40vh;
+    width: 100%;
+    left: 0;
+  }
+  .intro-header h1 {
+    font-size: 19px;
+  }
+}
+@media screen and (min-width: 960px) {
+  html {
+    background-color: red !important;
+  }
+  .card {
+    width: 29%;
+    max-height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+  }
+}
 @media screen and (min-width: 40em) {
   .container {
     max-width: 1000px;
@@ -169,3 +206,4 @@ h3 {
     clear: both;
   }
 }
+/*# sourceMappingURL=App.css.map */
